@@ -10,12 +10,13 @@ import Foundation
 
 class ContactList {
 	private var contacts = Array<Contact>()
+	private static var contactList: ContactList?
 	
-	init() {
+	private init() {
 		loadContacts()
 	}
 	
-	func loadContacts() {
+	private func loadContacts() {
 		let c1 = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: 9376380787)
 		let c2 = Contact(fname: "George", lname: "Forman", email: "georgeforman@gmail.com", phone: 5135555555)
 		contacts.append(c1)
@@ -32,6 +33,13 @@ class ContactList {
 	
 	func contactAt(index: Int) -> Contact {
 		return contacts[index]
+	}
+	
+	static func getInstance() -> ContactList {
+		if contactList == nil {
+			contactList = ContactList()
+		}
+		return contactList!
 	}
 	
 }

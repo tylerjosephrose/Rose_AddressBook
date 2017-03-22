@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		9A6834B01E82B5BF0005310C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834AF1E82B5BF0005310C /* AppDelegate.swift */; };
-		9A6834B21E82B5BF0005310C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834B11E82B5BF0005310C /* ViewController.swift */; };
 		9A6834B51E82B5C00005310C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6834B31E82B5C00005310C /* Main.storyboard */; };
 		9A6834B71E82B5C00005310C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A6834B61E82B5C00005310C /* Assets.xcassets */; };
 		9A6834BA1E82B5C00005310C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A6834B81E82B5C00005310C /* LaunchScreen.storyboard */; };
 		9A6834C21E82B9410005310C /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834C11E82B9410005310C /* Contact.swift */; };
 		9A6834C41E82BA2A0005310C /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834C31E82BA2A0005310C /* ContactList.swift */; };
+		9A6834C61E82C0120005310C /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834C51E82C0120005310C /* ContactTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9A6834AC1E82B5BF0005310C /* Rose_AddressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rose_AddressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A6834AF1E82B5BF0005310C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A6834B11E82B5BF0005310C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A6834B41E82B5C00005310C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A6834B61E82B5C00005310C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A6834B91E82B5C00005310C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A6834BB1E82B5C00005310C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A6834C11E82B9410005310C /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9A6834C31E82BA2A0005310C /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		9A6834C51E82C0120005310C /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				9A6834AF1E82B5BF0005310C /* AppDelegate.swift */,
-				9A6834B11E82B5BF0005310C /* ViewController.swift */,
 				9A6834B31E82B5C00005310C /* Main.storyboard */,
+				9A6834C51E82C0120005310C /* ContactTableViewController.swift */,
 				9A6834B61E82B5C00005310C /* Assets.xcassets */,
 				9A6834B81E82B5C00005310C /* LaunchScreen.storyboard */,
 				9A6834C11E82B9410005310C /* Contact.swift */,
@@ -145,7 +145,7 @@
 			files = (
 				9A6834C41E82BA2A0005310C /* ContactList.swift in Sources */,
 				9A6834C21E82B9410005310C /* Contact.swift in Sources */,
-				9A6834B21E82B5BF0005310C /* ViewController.swift in Sources */,
+				9A6834C61E82C0120005310C /* ContactTableViewController.swift in Sources */,
 				9A6834B01E82B5BF0005310C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +308,7 @@
 				9A6834C01E82B5C00005310C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
