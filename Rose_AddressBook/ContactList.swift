@@ -17,8 +17,8 @@ class ContactList {
 	}
 	
 	private func loadContacts() {
-		let c1 = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: 9376380787)
-		let c2 = Contact(fname: "George", lname: "Forman", email: "georgeforman@gmail.com", phone: 5135555555)
+		let c1 = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: "9376380787")
+		let c2 = Contact(fname: "George", lname: "Forman", email: "georgeforman@gmail.com", phone: "5135555555")
 		contacts.append(c1)
 		contacts.append(c2)
 	}

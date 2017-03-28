@@ -12,14 +12,14 @@ class Contact {
 	var firstName: String!
 	var lastName: String!
 	var emailAddress: String!
-	var phoneNumber: Int!
+	var phoneNumber: String!
 	
 	init(fname: String, lname: String) {
 		firstName = fname
 		lastName = lname
 	}
 	
-	init(fname: String, lname: String, email: String, phone: Int) {
+	init(fname: String, lname: String, email: String, phone: String) {
 		firstName = fname
 		lastName = lname
 		emailAddress = email
@@ -38,7 +38,7 @@ class Contact {
 		emailAddress = email
 	}
 	
-	func change(phone: Int) {
+	func change(phone: String) {
 		phoneNumber = phone
 	}
 }
