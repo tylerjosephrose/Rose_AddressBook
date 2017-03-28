@@ -8,23 +8,45 @@
 
 import Foundation
 
-class ContactList {
+class ContactList: NSObject {
 	private var contacts = Array<Contact>()
 	private static var contactList: ContactList?
 	
-	private init() {
+	private override init() {
+		super.init()
+		
 		loadContacts()
 	}
 	
 	private func loadContacts() {
-		let c1 = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: "9376380787")
-		let c2 = Contact(fname: "George", lname: "Forman", email: "georgeforman@gmail.com", phone: "5135555555")
-		contacts.append(c1)
-		contacts.append(c2)
+		let fileURL = getFileURL()
+		if (FileManager.default.fileExists(atPath: fileURL.path)) {
+			// Load Contents
+			contacts = NSKeyedUnarchiver.unarchiveObject(withFile: fileURL.path) as! Array<Contact>
+		} else {
+			// Create file with sample contacts
+			let c1 = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: "9376380787")
+			let c2 = Contact(fname: "George", lname: "Forman", email: "georgeforman@gmail.com", phone: "5135555555")
+			contacts.append(c1)
+			contacts.append(c2)
+			saveContacts()
+		}
+	}
+	
+	private func getFileURL() -> URL {
+		let dir = try! FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
+		let fileURL = dir.appendingPathComponent("ContactList.data")
+		return fileURL
+	}
+	
+	private func saveContacts() {
+		let fileURL = getFileURL()
+		NSKeyedArchiver.archiveRootObject(contacts, toFile: fileURL.path)
 	}
 	
 	func addContacts(contact c: Contact) {
 		contacts.append(c)
+		saveContacts()
 	}
 	
 	func countOfContacts() -> Int {

@@ -39,7 +39,8 @@ class AddTableViewController: UITableViewController {
 				contact.change(email: eAddressTxt.text!)
 			}
 			if (pNumberTxt.text != nil) {
-				contact.change(phone: pNumberTxt.text!)
+				let number = pNumberTxt.text!.trimmingCharacters(in: CharacterSet(charactersIn: "01234567890.").inverted)
+				contact.change(phone: number)
 			}
 		}
 	}
