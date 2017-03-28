@@ -56,5 +56,17 @@ class ContactTableViewController: UITableViewController {
 			destination.contact = selectedContact
 		}
 	}
+	
+	@IBAction func cancel(segue: UIStoryboardSegue) {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func save(segue: UIStoryboardSegue) {
+		let source = segue.source as! AddTableViewController
+		let newContact = source.contact
+		contactList.addContacts(contact: newContact!)
+		tableView.reloadData()
+		dismiss(animated: true, completion: nil)
+	}
 
 }

@@ -15,6 +15,7 @@
 		9A6834C41E82BA2A0005310C /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834C31E82BA2A0005310C /* ContactList.swift */; };
 		9A6834C61E82C0120005310C /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6834C51E82C0120005310C /* ContactTableViewController.swift */; };
 		9AA8121D1E8ABED80058DBC3 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8121C1E8ABED80058DBC3 /* DetailTableViewController.swift */; };
+		9AA8121F1E8AD56D0058DBC3 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA8121E1E8AD56D0058DBC3 /* AddTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9A6834C31E82BA2A0005310C /* ContactList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		9A6834C51E82C0120005310C /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		9AA8121C1E8ABED80058DBC3 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		9AA8121E1E8AD56D0058DBC3 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				9A6834AF1E82B5BF0005310C /* AppDelegate.swift */,
 				9A6834B31E82B5C00005310C /* Main.storyboard */,
+				9AA8121E1E8AD56D0058DBC3 /* AddTableViewController.swift */,
 				9AA8121C1E8ABED80058DBC3 /* DetailTableViewController.swift */,
 				9A6834C51E82C0120005310C /* ContactTableViewController.swift */,
 				9A6834B61E82B5C00005310C /* Assets.xcassets */,
@@ -151,6 +154,7 @@
 				9A6834C21E82B9410005310C /* Contact.swift in Sources */,
 				9A6834C61E82C0120005310C /* ContactTableViewController.swift in Sources */,
 				9A6834B01E82B5BF0005310C /* AppDelegate.swift in Sources */,
+				9AA8121F1E8AD56D0058DBC3 /* AddTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
