@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="927.20000000000005" y="224.4377811094453"/>
         </scene>
-        <!--Add Table View Controller-->
+        <!--Add Change Contact Table View Controller-->
         <scene sceneID="Cm2-lP-Ilh">
             <objects>
-                <tableViewController id="THn-TJ-mD3" customClass="AddTableViewController" customModule="Rose_AddressBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="THn-TJ-mD3" customClass="AddChangeContactTableViewController" customModule="Rose_AddressBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Uyh-ZS-QRm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +262,13 @@
                             <outlet property="delegate" destination="z3T-DL-1cO" id="bI0-I3-oGI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="oAt-nY-bdB"/>
+                    <navigationItem key="navigationItem" id="oAt-nY-bdB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="nNr-WA-bLT">
+                            <connections>
+                                <segue destination="ZbT-UB-A5Z" kind="presentation" identifier="EditContact" id="g5J-1F-xXr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailAdressLbl" destination="yXu-Qk-hmU" id="LUZ-Xm-r7k"/>
                         <outlet property="fNameLbl" destination="hF8-zh-Zvk" id="L3n-lE-3uB"/>
@@ -311,4 +317,7 @@
             <point key="canvasLocation" x="1837.5999999999999" y="742.5787106446777"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g5J-1F-xXr"/>
+    </inferredMetricsTieBreakers>
 </document>

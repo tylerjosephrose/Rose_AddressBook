@@ -77,18 +77,27 @@ class ContactTableViewController: UITableViewController {
 			let selectedContact = contactList.contactAt(index: (tableView.indexPathForSelectedRow?.row)!)
 			let destination = segue.destination as! DetailTableViewController
 			destination.contact = selectedContact
+			destination.index = tableView.indexPathForSelectedRow?.row
 		}
 	}
 	
 	@IBAction func cancel(segue: UIStoryboardSegue) {
+		let source = segue.source as! AddChangeContactTableViewController
+		source.isOnEdit = false
 		dismiss(animated: true, completion: nil)
 	}
 	
 	@IBAction func save(segue: UIStoryboardSegue) {
-		let source = segue.source as! AddTableViewController
+		let source = segue.source as! AddChangeContactTableViewController
 		let newContact = source.contact
-		contactList.addContacts(contact: newContact!)
+		if (source.isOnEdit == false) {
+			contactList.addContacts(contact: newContact!)
+		} else {
+			var oldContact = contactList.contactAt(index: source.indexOfContactEdited!)
+			oldContact = newContact!
+		}
 		tableView.reloadData()
+		source.isOnEdit = false
 		dismiss(animated: true, completion: nil)
 	}
 

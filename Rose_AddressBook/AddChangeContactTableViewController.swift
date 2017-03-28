@@ -8,12 +8,15 @@
 
 import UIKit
 
-class AddTableViewController: UITableViewController {
+class AddChangeContactTableViewController: UITableViewController {
 	
 	@IBOutlet weak var fNameTxt: UITextField!
 	@IBOutlet weak var lNameTxt: UITextField!
 	@IBOutlet weak var eAddressTxt: UITextField!
 	@IBOutlet weak var pNumberTxt: UITextField!
+	
+	var isOnEdit = false
+	var indexOfContactEdited: Int?
 	
 	var contact: Contact!
 
@@ -25,6 +28,12 @@ class AddTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+		if (isOnEdit == true) {
+			fNameTxt.text = contact.firstName
+			lNameTxt.text = contact.lastName
+			eAddressTxt.text = contact.emailAddress
+			pNumberTxt.text = contact.phoneNumber
+		}
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +43,12 @@ class AddTableViewController: UITableViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if (segue.identifier == "SaveSegue") {
-			contact = Contact(fname: fNameTxt.text!, lname: lNameTxt.text!)
+			if (contact == nil) {
+				contact = Contact(fname: fNameTxt.text!, lname: lNameTxt.text!)
+			} else {
+				contact.firstName = fNameTxt.text!
+				contact.lastName = lNameTxt.text!
+			}
 			if (eAddressTxt.text != nil) {
 				contact.change(email: eAddressTxt.text!)
 			}
@@ -51,5 +65,6 @@ class AddTableViewController: UITableViewController {
 			}
 		}
 	}
+	
 
 }

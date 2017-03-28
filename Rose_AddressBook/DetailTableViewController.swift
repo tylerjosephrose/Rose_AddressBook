@@ -16,6 +16,7 @@ class DetailTableViewController: UITableViewController {
 	@IBOutlet weak var phoneNumberLbl: UILabel!
 	
 	var contact: Contact!
+	var index: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,16 @@ class DetailTableViewController: UITableViewController {
 			return phone
 		} else {
 			return String(contact.phoneNumber)
+		}
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "EditContact" {
+			let navVC = segue.destination as! UINavigationController
+			let destination = navVC.viewControllers.first as! AddChangeContactTableViewController
+			destination.contact = contact
+			destination.isOnEdit = true
+			destination.indexOfContactEdited = index
 		}
 	}
 
