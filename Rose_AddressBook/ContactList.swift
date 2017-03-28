@@ -12,6 +12,8 @@ class ContactList: NSObject {
 	private var contacts = Array<Contact>()
 	private static var contactList: ContactList?
 	
+	var sortByLast = true
+	
 	private override init() {
 		super.init()
 		
@@ -31,6 +33,7 @@ class ContactList: NSObject {
 			contacts.append(c2)
 			saveContacts()
 		}
+		sortLast()
 	}
 	
 	private func getFileURL() -> URL {
@@ -44,8 +47,29 @@ class ContactList: NSObject {
 		NSKeyedArchiver.archiveRootObject(contacts, toFile: fileURL.path)
 	}
 	
+	func insertSorted(contact c: Contact) {
+		var index = contacts.count - 1
+		if (sortByLast == true) {
+			for i in 0...contacts.count - 1 {
+				if (sortLastInternal(c1: c, c2: contacts[i])){
+					index = i
+					break
+				}
+			}
+			contacts.insert(c, at: index)
+		} else {
+			for i in 0...contacts.count - 1 {
+				if (sortFirstInternal(c1: c, c2: contacts[i])){
+					index = i
+					break
+				}
+			}
+			contacts.insert(c, at: index)
+		}
+	}
+	
 	func addContacts(contact c: Contact) {
-		contacts.append(c)
+		insertSorted(contact: c)
 		saveContacts()
 	}
 	
@@ -62,6 +86,35 @@ class ContactList: NSObject {
 			contactList = ContactList()
 		}
 		return contactList!
+	}
+	
+	func deleteContact(at index: Int) {
+		contacts.remove(at: index)
+		saveContacts()
+	}
+	
+	func sortFirst() {
+		contacts.sort(by: sortFirstInternal(c1:c2:))
+	}
+	
+	private func sortFirstInternal(c1: Contact, c2: Contact) -> Bool {
+		if c1.firstName == c2.firstName {
+			return c1.lastName < c2.lastName
+		} else {
+			return c1.firstName < c2.firstName
+		}
+	}
+	
+	func sortLast() {
+		contacts.sort(by: sortLastInternal(c1:c2:))
+	}
+	
+	private func sortLastInternal(c1: Contact, c2: Contact) -> Bool {
+		if c1.lastName == c2.lastName {
+			return c1.firstName < c2.firstName
+		} else {
+			return c1.lastName < c2.lastName
+		}
 	}
 	
 }

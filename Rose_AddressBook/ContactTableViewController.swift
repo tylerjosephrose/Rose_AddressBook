@@ -12,6 +12,20 @@ class ContactTableViewController: UITableViewController {
 	
 	let contactList = ContactList.getInstance()
 
+	@IBAction func changeSortOrder(_ sender: UIBarButtonItem) {
+		if (contactList.sortByLast == true) {
+			contactList.sortFirst()
+			sender.title = "Sort By First"
+			contactList.sortByLast = false
+			tableView.reloadData()
+		} else {
+			contactList.sortLast()
+			sender.title = "Sort By Last"
+			contactList.sortByLast = true
+			tableView.reloadData()
+		}
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,15 +33,13 @@ class ContactTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -38,6 +50,17 @@ class ContactTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return contactList.countOfContacts()
     }
+	
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return true
+	}
+	
+	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		if editingStyle == .delete {
+			contactList.deleteContact(at: indexPath.row)
+			tableView.deleteRows(at: [indexPath], with: .fade)
+		}
+	}
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
