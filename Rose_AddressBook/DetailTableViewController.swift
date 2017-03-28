@@ -19,14 +19,16 @@ class DetailTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		//contact = Contact(fname: "Tyler", lname: "Rose", email: "roset3@mail.uc.edu", phone: "9376380787")
 		
         fNameLbl.text = contact.firstName
 		lNameLbl.text = contact.lastName
-		emailAdressLbl.text = contact.emailAddress
-		let phoneNumber = phoneNumberToString()
-		phoneNumberLbl.text = phoneNumber
+		if (contact.emailAddress != nil) {
+			emailAdressLbl.text = contact.emailAddress
+		}
+		if (contact.phoneNumber != nil) {
+			let phoneNumber = phoneNumberToString()
+			phoneNumberLbl.text = phoneNumber
+		}
     }
 	
 	private func phoneNumberToString() -> String {
